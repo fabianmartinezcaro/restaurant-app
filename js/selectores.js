@@ -1,5 +1,6 @@
 // FORMULARIO
 export const formulario = document.querySelector('#formulario');
+export const modalContent = document.querySelector('.modal-content');
 
 // INPUTS FORMULARIO
 export function obtenerValorMesa() {

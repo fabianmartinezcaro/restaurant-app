@@ -1,5 +1,5 @@
 import UI from "./classes/UI.js";
-import { obtenerValorMesa, obtenerValorHora } from "./selectores.js"
+import { obtenerValorMesa, obtenerValorHora, formulario, modalContent } from "./selectores.js"
 
 const ui = new UI();
 
@@ -18,7 +18,7 @@ export function guardarCliente(evento){
     const camposVacios = [mesa, hora].some(campo => campo === '');
 
     if(camposVacios){
-        ui.mostrarAlerta();
+        ui.mostrarAlerta(modalContent, 'Los campos son obligatorios', 'error');
     }else{
         ui.mostrarAlerta();
     }
