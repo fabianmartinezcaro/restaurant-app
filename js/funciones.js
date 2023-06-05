@@ -3,7 +3,7 @@ import { obtenerValorMesa, obtenerValorHora, formulario, modalContent } from "./
 
 const ui = new UI();
 
-const cliente = {
+let cliente = {
     mesa: '',
     hora: '',
     pedido: []
@@ -19,8 +19,14 @@ export function guardarCliente(evento){
 
     if(camposVacios){
         ui.mostrarAlerta(modalContent, 'Los campos son obligatorios', 'error');
-    }else{
-        ui.mostrarAlerta();
+        return;
     }
+
+    // Asignamos los datos del formulario al objeto cliente
+    cliente = {...cliente, mesa, hora}
+    console.log(cliente)
+
+    modalBootstrap = bootstrap.Modal.getInstance(modalContent);
+    modalBootstrap.hide();
 
 }

@@ -1,25 +1,28 @@
 export default class UI{
 
     mostrarAlerta(contenedor, mensaje, tipo){
-        const alerta = document.createElement('p');
-        alerta.textContent = mensaje;
+
         let condicionCumplida = false;
 
         if(tipo === 'error'){
-            alerta.classList.add('bg-danger', 'py-2', 'mx-4', 'text-center', 'text-white');
-            condicionCumplida = true;
 
-        }else{
-            alerta.classList.add('bg-success');
-            condicionCumplida = true;
-        }
+            const existeAlerta = document.querySelector('.invalid-feedback');
+            
+            if(!existeAlerta){
+                const alerta = document.createElement('p');
+                alerta.classList.add('invalid-feedback', 'd-block', 'text-center', 'border', 'border-danger', 'rounded', 'p-2');
+                alerta.textContent = mensaje;
+                condicionCumplida = true;
+                contenedor.appendChild(alerta)
 
-        contenedor.appendChild(alerta)
+                if(condicionCumplida){
+                    setTimeout(() => {
+                        alerta.remove();
+                    }, 3000);
+                }
 
-        if(condicionCumplida){
-            setTimeout(() => {
-                alerta.remove();
-            }, 3000);
+            }
+
         }
 
     }
