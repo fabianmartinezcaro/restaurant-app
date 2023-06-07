@@ -1,5 +1,5 @@
 import UI from "./classes/UI.js";
-import { obtenerValorMesa, obtenerValorHora, formulario, modalContent } from "./selectores.js"
+import { obtenerValorMesa, obtenerValorHora, modalContent, formulario } from "./selectores.js";
 
 const ui = new UI();
 
@@ -26,7 +26,7 @@ export function guardarCliente(evento){
     cliente = {...cliente, mesa, hora}
     console.log(cliente)
 
-    modalBootstrap = bootstrap.Modal.getInstance(modalContent);
+    const modalBootstrap = bootstrap.Modal.getInstance(formulario);
     modalBootstrap.hide();
 
 }
