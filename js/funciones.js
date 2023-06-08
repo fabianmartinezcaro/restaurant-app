@@ -29,4 +29,17 @@ export function guardarCliente(evento){
     const modalBootstrap = bootstrap.Modal.getInstance(formulario);
     modalBootstrap.hide();
 
+    ui.mostrarSecciones();
+
+    obtenerPlatillos();
+
+}
+
+function obtenerPlatillos(){
+    const URL = 'http://localhost:4000/platillos'
+
+    fetch(URL)
+        .then(respuesta => respuesta.json())
+        .then(resultado => ui.mostrarPlatillos(resultado))
+
 }

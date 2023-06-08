@@ -1,4 +1,35 @@
+import { containerPlatillos, secciones } from "../selectores.js";
+
 export default class UI{
+
+    mostrarPlatillos(platillos){
+        platillos.forEach(platillo => {
+
+            console.log(platillo)
+
+            const {nombre, precio} = platillo
+
+            containerPlatillos.innerHTML += `
+                <div class="container">
+                    <div class="row py-2 border-top">
+                        <div class="col-md-4">
+                            <h6 class="fw-bold">${nombre}</h6>
+                        </div>
+                        <div class="col-md-4">
+                            <p><span class="fw-bold">Precio:</span> $${precio}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="number" class="form-control" placeholder="Cantidad" />
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    mostrarSecciones(){
+        secciones.forEach(seccion => seccion.classList.remove('d-none'));
+    }
 
     mostrarAlerta(contenedor, mensaje, tipo){
 

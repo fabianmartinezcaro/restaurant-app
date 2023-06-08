@@ -2,6 +2,10 @@
 export const formulario = document.querySelector('#formulario');
 export const modalContent = document.querySelector('.modal-content form');
 
+// SECCIONES OCULTAS
+export const secciones = document.querySelectorAll('.d-none');
+export const containerPlatillos = document.querySelector('#platillos .contenido');
+
 // INPUTS FORMULARIO
 export function obtenerValorMesa() {
     return document.querySelector("#mesa").value;
