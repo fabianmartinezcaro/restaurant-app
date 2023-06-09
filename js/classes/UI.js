@@ -1,4 +1,11 @@
+import { updCantidad } from "../funciones.js";
 import { containerPlatillos, secciones } from "../selectores.js";
+
+const categorias = {
+    1: 'Comida',
+    2: 'Bebidas',
+    3: 'Postres'
+}
 
 export default class UI{
 
@@ -7,19 +14,22 @@ export default class UI{
 
             console.log(platillo)
 
-            const {nombre, precio} = platillo
+            const {id, nombre, precio, categoria} = platillo
 
             containerPlatillos.innerHTML += `
                 <div class="container">
                     <div class="row py-2 border-top">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <h6 class="fw-bold">${nombre}</h6>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <p><span class="fw-bold">Precio:</span> $${precio}</p>
                         </div>
-                        <div class="col-md-4">
-                            <input type="number" class="form-control" placeholder="Cantidad" />
+                        <div class="col-md-3">
+                            <p><span class="fw-bold">${categorias[categoria]}</p>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="producto-${id}" type="number" onchange="${updCantidad()}" min="0" value="0" class="form-control" placeholder="Cantidad"/>
                         </div>
                     </div>
                 </div>

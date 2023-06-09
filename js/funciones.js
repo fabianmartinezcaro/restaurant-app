@@ -43,3 +43,7 @@ function obtenerPlatillos(){
         .then(resultado => ui.mostrarPlatillos(resultado))
 
 }
+
+export function updCantidad(){
+    console.log('desde la funcion')
+}
