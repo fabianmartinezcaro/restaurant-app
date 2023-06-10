@@ -44,6 +44,3 @@ function obtenerPlatillos(){
 
 }
 
-export function updCantidad(){
-    console.log('desde la funcion')
-}

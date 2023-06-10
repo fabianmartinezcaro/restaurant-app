@@ -1,4 +1,4 @@
-import { updCantidad } from "../funciones.js";
+import {  } from "../funciones.js";
 import { containerPlatillos, secciones } from "../selectores.js";
 
 const categorias = {
@@ -12,28 +12,21 @@ export default class UI{
     mostrarPlatillos(platillos){
         platillos.forEach(platillo => {
 
-            console.log(platillo)
-
             const {id, nombre, precio, categoria} = platillo
 
-            containerPlatillos.innerHTML += `
-                <div class="container">
-                    <div class="row py-2 border-top">
-                        <div class="col-md-3">
-                            <h6 class="fw-bold">${nombre}</h6>
-                        </div>
-                        <div class="col-md-3">
-                            <p><span class="fw-bold">Precio:</span> $${precio}</p>
-                        </div>
-                        <div class="col-md-3">
-                            <p><span class="fw-bold">${categorias[categoria]}</p>
-                        </div>
-                        <div class="col-md-3">
-                            <input id="producto-${id}" type="number" onchange="${updCantidad()}" min="0" value="0" class="form-control" placeholder="Cantidad"/>
-                        </div>
-                    </div>
-                </div>
-            `;
+            const mainPlatillo = document.createElement('DIV');
+            mainPlatillo.classList.add('row');
+
+            const nombrePlatillo = document.createElement('DIV');
+            nombrePlatillo.classList.add('col-md-2');
+            nombrePlatillo.textContent = nombre;
+
+            const precioPlatillo = document.createElement('DIV');
+            precioPlatillo.classList.add('col-md-2');
+            precioPlatillo.textContent = precio;
+            
+            containerPlatillos.appendChild(nombrePlatillo);
+
         });
     }
 
