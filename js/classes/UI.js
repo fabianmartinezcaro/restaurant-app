@@ -1,4 +1,4 @@
-import {  } from "../funciones.js";
+import { agregarPlatillo } from "../funciones.js";
 import { containerPlatillos, secciones } from "../selectores.js";
 
 const categorias = {
@@ -15,17 +15,43 @@ export default class UI{
             const {id, nombre, precio, categoria} = platillo
 
             const mainPlatillo = document.createElement('DIV');
+            mainPlatillo.classList.add('border-top', 'py-2')
             mainPlatillo.classList.add('row');
 
             const nombrePlatillo = document.createElement('DIV');
-            nombrePlatillo.classList.add('col-md-2');
+            nombrePlatillo.classList.add('col-md-3');
             nombrePlatillo.textContent = nombre;
 
             const precioPlatillo = document.createElement('DIV');
-            precioPlatillo.classList.add('col-md-2');
-            precioPlatillo.textContent = precio;
+            precioPlatillo.classList.add('col-md-3');
+            precioPlatillo.textContent = '$' + precio;
+
+            const categoriaPlatillo = document.createElement('DIV');
+            categoriaPlatillo.classList.add('col-md-3');
+            categoriaPlatillo.textContent = categorias[categoria];
+
+            const inputCantidad = document.createElement('INPUT');
+            inputCantidad.classList.add('form-control');
+            inputCantidad.value = 0;
+            inputCantidad.min = 0;
+            inputCantidad.type = 'number';
+            inputCantidad.id = `producto-${id}`;
+
+            inputCantidad.onchange = function () {
+                const cantidad = parseInt(inputCantidad.value);
+                console.log(cantidad)
+                agregarPlatillo({...platillo, cantidad});
+            }
+
+            const agregar = document.createElement('DIV');
+            agregar.classList.add('col-md-2')
+            agregar.appendChild(inputCantidad);
             
-            containerPlatillos.appendChild(nombrePlatillo);
+            mainPlatillo.appendChild(nombrePlatillo);
+            mainPlatillo.appendChild(precioPlatillo);
+            mainPlatillo.appendChild(categoriaPlatillo);
+            mainPlatillo.appendChild(agregar);
+            containerPlatillos.appendChild(mainPlatillo)
 
         });
     }

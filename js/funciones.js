@@ -44,3 +44,6 @@ function obtenerPlatillos(){
 
 }
 
+export function agregarPlatillo(pedido){
+    console.log(pedido)
+}
