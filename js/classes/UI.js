@@ -9,6 +9,10 @@ const categorias = {
 
 export default class UI{
 
+    agregarAResumen(){
+        
+    }
+
     mostrarPlatillos(platillos){
         platillos.forEach(platillo => {
 
@@ -39,7 +43,6 @@ export default class UI{
 
             inputCantidad.onchange = function () {
                 const cantidad = parseInt(inputCantidad.value);
-                console.log(cantidad)
                 agregarPlatillo({...platillo, cantidad});
             }
 

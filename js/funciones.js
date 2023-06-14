@@ -44,6 +44,15 @@ function obtenerPlatillos(){
 
 }
 
-export function agregarPlatillo(pedido){
-    console.log(pedido)
+export function agregarPlatillo(producto){
+
+    const {pedido} = cliente;
+
+    if(producto.cantidad > 0){
+        cliente.pedido = [...pedido, producto];
+    }else{
+        console.log('Es menor a 0')
+    }
+
+    console.log(cliente.pedido);
 }
