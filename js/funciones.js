@@ -44,15 +44,36 @@ function obtenerPlatillos(){
 
 }
 
+
 export function agregarPlatillo(producto){
 
-    const {pedido} = cliente;
+    const {pedido} = cliente; 
 
     if(producto.cantidad > 0){
-        cliente.pedido = [...pedido, producto];
+
+        // Comprobar si el producto existe en el array
+        if(pedido.some(articulo => articulo.id === producto.id)){
+
+            // Si el producto ya existe, solo actualizamos la cantidad en el objeto
+            const pedidoActualizado = pedido.map(articulo => {
+                if(articulo.id === producto.id){
+                    articulo.cantidad = producto.cantidad;
+                }
+                return articulo;
+            })
+
+            cliente.pedido = [...pedidoActualizado];
+
+        }else{
+
+            cliente.pedido = [...pedido, producto];
+
+        }
+
     }else{
         console.log('Es menor a 0')
     }
 
     console.log(cliente.pedido);
+
 }
