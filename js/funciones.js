@@ -71,7 +71,25 @@ export function agregarPlatillo(producto){
         }
 
     }else{
-        console.log('Es menor a 0')
+        
+        if(pedido.some(articulo => articulo.id === producto.id)){
+
+            const pedidoActualizado = pedido.map(articulo => {
+
+                if(articulo.id === producto.id){
+
+                    articulo.cantidad = 0;
+
+                }
+
+                return articulo;
+
+            })
+
+            cliente.pedido = [...pedidoActualizado];
+
+        }
+
     }
 
     console.log(cliente.pedido);
