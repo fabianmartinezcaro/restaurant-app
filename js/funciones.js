@@ -77,9 +77,7 @@ export function agregarPlatillo(producto){
             const pedidoActualizado = pedido.map(articulo => {
 
                 if(articulo.id === producto.id){
-
                     articulo.cantidad = 0;
-
                 }
 
                 return articulo;
@@ -87,11 +85,12 @@ export function agregarPlatillo(producto){
             })
 
             cliente.pedido = [...pedidoActualizado];
+            
 
         }
 
     }
 
-    console.log(cliente.pedido);
+    ui.agregarAlResumen(cliente.pedido);
 
 }

@@ -9,8 +9,8 @@ const categorias = {
 
 export default class UI{
 
-    agregarAResumen(){
-        
+    agregarAlResumen(producto){
+        console.log(producto)
     }
 
     mostrarPlatillos(platillos){
