@@ -17,3 +17,6 @@ export function obtenerValorMesa() {
 
 // BOTONES FORMULARIO
 export const btnCrearOrden = document.querySelector('#guardar-cliente');
+
+// RESUMEN DEL CONSUMO
+export const resumen = document.querySelector('#resumen');

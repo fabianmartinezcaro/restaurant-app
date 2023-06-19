@@ -72,25 +72,12 @@ export function agregarPlatillo(producto){
 
     }else{
         
-        if(pedido.some(articulo => articulo.id === producto.id)){
-
-            const pedidoActualizado = pedido.map(articulo => {
-
-                if(articulo.id === producto.id){
-                    articulo.cantidad = 0;
-                }
-
-                return articulo;
-
-            })
-
-            cliente.pedido = [...pedidoActualizado];
-            
-
-        }
+        const resultado = pedido.filter(articulo => articulo.id !== producto.id);
+        cliente.pedido = [...resultado]
 
     }
 
-    ui.agregarAlResumen(cliente.pedido);
+    console.log(cliente.pedido)
+    ui.actualizarResumen(cliente.pedido);
 
 }

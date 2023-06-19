@@ -1,5 +1,5 @@
 import { agregarPlatillo } from "../funciones.js";
-import { containerPlatillos, secciones } from "../selectores.js";
+import { containerPlatillos, resumen, secciones } from "../selectores.js";
 
 const categorias = {
     1: 'Comida',
@@ -9,8 +9,19 @@ const categorias = {
 
 export default class UI{
 
-    agregarAlResumen(producto){
-        console.log(producto)
+    actualizarResumen(productos){
+
+        const divInfo = document.createElement('DIV');
+        divInfo.classList.add('row')
+
+        productos.forEach(producto => {
+
+            const {cantidad, nombre, precio} = producto;
+
+            
+
+        })
+
     }
 
     mostrarPlatillos(platillos){
