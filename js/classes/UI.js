@@ -14,6 +14,10 @@ export default class UI{
         const infoResumen = document.createElement('DIV');
         infoResumen.classList.add('col-md-6');
 
+        const divProducto = document.createElement('DIV');
+        divProducto.classList.add('col-md-6');
+
+        // MESA
         const mesa = document.createElement('P');
         mesa.textContent = 'Mesa: ';
         mesa.classList.add('fw-bold');
@@ -21,11 +25,39 @@ export default class UI{
         const mesaSpan = document.createElement('SPAN');
         mesaSpan.textContent = cliente.mesa;
         mesaSpan.classList.add('fw-normal');
-        
+    
+        // HORA
+        const hora = document.createElement('P');
+        hora.textContent = 'Mesa: ';
+        hora.classList.add('fw-bold');
+
+        const horaSpan = document.createElement('SPAN');
+        horaSpan.textContent = cliente.hora;
+        horaSpan.classList.add('fw-normal');
+
+        // PEDIDO
+        productos.forEach(producto => {
+
+            const {cantidad, nombre, precio, categoria} = producto;
+
+            const nombreProducto = document.createElement('P');
+            nombreProducto.textContent = nombre;
+
+            const cantidadProducto = document.createElement('P');
+            cantidadProducto.textContent = cantidad;
+
+            divProducto.appendChild(nombreProducto);
+            divProducto.appendChild(cantidadProducto);
+
+
+        })
 
         mesa.appendChild(mesaSpan)
+        hora.appendChild(horaSpan)
 
         contenido.appendChild(mesa);
+        contenido.appendChild(hora);
+        contenido.appendChild(divProducto);
 
     }
 
