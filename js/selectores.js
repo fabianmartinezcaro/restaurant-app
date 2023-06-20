@@ -20,3 +20,4 @@ export const btnCrearOrden = document.querySelector('#guardar-cliente');
 
 // RESUMEN DEL CONSUMO
 export const resumen = document.querySelector('#resumen');
+export const contenido = document.querySelector('#resumen .contenido');

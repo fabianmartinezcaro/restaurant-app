@@ -3,7 +3,7 @@ import { obtenerValorMesa, obtenerValorHora, modalContent, formulario } from "./
 
 const ui = new UI();
 
-let cliente = {
+export let cliente = {
     mesa: '',
     hora: '',
     pedido: []

@@ -1,5 +1,5 @@
-import { agregarPlatillo } from "../funciones.js";
-import { containerPlatillos, resumen, secciones } from "../selectores.js";
+import { agregarPlatillo, cliente } from "../funciones.js";
+import { containerPlatillos, contenido, resumen, secciones } from "../selectores.js";
 
 const categorias = {
     1: 'Comida',
@@ -11,16 +11,21 @@ export default class UI{
 
     actualizarResumen(productos){
 
-        const divInfo = document.createElement('DIV');
-        divInfo.classList.add('row')
+        const infoResumen = document.createElement('DIV');
+        infoResumen.classList.add('col-md-6');
 
-        productos.forEach(producto => {
+        const mesa = document.createElement('P');
+        mesa.textContent = 'Mesa: ';
+        mesa.classList.add('fw-bold');
 
-            const {cantidad, nombre, precio} = producto;
+        const mesaSpan = document.createElement('SPAN');
+        mesaSpan.textContent = cliente.mesa;
+        mesaSpan.classList.add('fw-normal');
+        
 
-            
+        mesa.appendChild(mesaSpan)
 
-        })
+        contenido.appendChild(mesa);
 
     }
 
@@ -99,6 +104,12 @@ export default class UI{
 
         }
 
+    }
+
+    limpiarHTML(contenedor){
+        while(contenedor.firstChild){
+            contenedor.removeChild(contenedor.firstChild);
+        }
     }
 
 }
