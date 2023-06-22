@@ -1,5 +1,5 @@
 import UI from "./classes/UI.js";
-import { obtenerValorMesa, obtenerValorHora, modalContent, formulario } from "./selectores.js";
+import { obtenerValorMesa, obtenerValorHora, modalContent, formulario, contenido } from "./selectores.js";
 
 const ui = new UI();
 
@@ -76,6 +76,8 @@ export function agregarPlatillo(producto){
         cliente.pedido = [...resultado]
 
     }
+
+    ui.limpiarHTML(contenido);
 
     console.log(cliente.pedido)
     ui.actualizarResumen(cliente.pedido);
