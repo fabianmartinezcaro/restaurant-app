@@ -83,3 +83,7 @@ export function agregarPlatillo(producto){
     ui.actualizarResumen(cliente.pedido);
 
 }
+
+export function calcularSubtotal(cantidad, precio){
+    return `$${cantidad * precio}`;
+}

@@ -1,5 +1,5 @@
-import { agregarPlatillo, cliente } from "../funciones.js";
-import { containerPlatillos, contenido, resumen, secciones } from "../selectores.js";
+import { agregarPlatillo, calcularSubtotal, cliente } from "../funciones.js";
+import { containerPlatillos, contenido, secciones } from "../selectores.js";
 
 const categorias = {
     1: 'Comida',
@@ -12,7 +12,7 @@ export default class UI{
     actualizarResumen(productos){
 
         const resumen = document.createElement('DIV');
-        resumen.classList.add('row');
+        resumen.classList.add('col-md-6', 'card', 'py-5', 'px-3', 'shadow');
 
         // MESA
         const mesa = document.createElement('P');
@@ -32,12 +32,52 @@ export default class UI{
         horaSpan.textContent = cliente.hora;
         horaSpan.classList.add('fw-normal');
 
+        // ITERAMOS SOBRE LOS PRODUCTOS
+        const grupo = document.createElement('UL');
+        grupo.classList.add('list-group');
+
+        const {pedido} = cliente;
+
+        pedido.forEach(producto => {
+
+            const {id, nombre, cantidad, categoria, precio} = producto;
+
+            const lista = document.createElement('LI');
+            lista.classList.add('list-group-item');
+
+            const nombreProducto = document.createElement('H6');
+            nombreProducto.classList.add('my-4', 'fw-bold');
+            nombreProducto.textContent = nombre;
+
+            // CANTIDAD DEL PRODUCTO
+            const cantidadProducto = document.createElement('P');
+            cantidadProducto.innerHTML = `<span class="fw-bold">Cantidad: </span> ${cantidad}`;
+
+            const precioProducto = document.createElement('P');
+            precioProducto.innerHTML = `<span class="fw-bold">Precio: $</span> ${precio}`;
+
+            const subtotalProducto = document.createElement('P');
+            subtotalProducto.innerHTML = `<span class="fw-bold">Subtotal: </span> ${calcularSubtotal(cantidad, precio)}`;
+
+
+            // AGREGANDO LOS ELEMENTOS AL LI
+            lista.appendChild(nombreProducto);
+            lista.appendChild(cantidadProducto);
+            lista.appendChild(precioProducto);
+            lista.appendChild(subtotalProducto);
+
+            // AGREGAR AL ELEMENTO PRINCIPAL
+            grupo.appendChild(lista);
+
+        })
+
 
         mesa.appendChild(mesaSpan)
         hora.appendChild(horaSpan)
 
         resumen.appendChild(mesa);
         resumen.appendChild(hora);
+        resumen.appendChild(grupo);
 
         contenido.appendChild(resumen);
         
