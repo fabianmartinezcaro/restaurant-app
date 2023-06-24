@@ -11,8 +11,8 @@ export default class UI{
 
     actualizarResumen(productos){
 
-        const divProducto = document.createElement('DIV');
-        divProducto.classList.add('col');
+        const resumen = document.createElement('DIV');
+        resumen.classList.add('row');
 
         // MESA
         const mesa = document.createElement('P');
@@ -25,47 +25,22 @@ export default class UI{
     
         // HORA
         const hora = document.createElement('P');
-        hora.textContent = 'Mesa: ';
+        hora.textContent = 'Hora: ';
         hora.classList.add('fw-bold');
 
         const horaSpan = document.createElement('SPAN');
         horaSpan.textContent = cliente.hora;
         horaSpan.classList.add('fw-normal');
 
-        // PEDIDO
-        productos.forEach(producto => {
-
-            const {cantidad, nombre, precio, categoria} = producto;
-
-            const infoResumenPlatillos = document.createElement('DIV');
-            infoResumenPlatillos.classList.add('row')
-
-            const nombreProducto = document.createElement('P');
-            nombreProducto.classList.add('col')
-            nombreProducto.textContent = nombre;
-
-            const cantidadProducto = document.createElement('P');
-            cantidadProducto.classList.add('col')
-            cantidadProducto.textContent = cantidad;
-
-            const precioProducto = document.createElement('P');
-            precioProducto.classList.add('col');
-            precioProducto.textContent = '$ ' + precio;
-
-            divProducto.appendChild(nombreProducto);
-            divProducto.appendChild(cantidadProducto);
-            divProducto.appendChild(precioProducto);
-
-
-        })
 
         mesa.appendChild(mesaSpan)
         hora.appendChild(horaSpan)
 
-        contenido.appendChild(mesa);
-        contenido.appendChild(hora);
-        contenido.appendChild(divProducto);
+        resumen.appendChild(mesa);
+        resumen.appendChild(hora);
 
+        contenido.appendChild(resumen);
+        
     }
 
     mostrarPlatillos(platillos){
