@@ -84,6 +84,10 @@ export function agregarPlatillo(producto){
 
 }
 
+export function eliminarPlatillo(id){
+    
+}
+
 export function calcularSubtotal(cantidad, precio){
-    return `$${cantidad * precio}`;
+    return `${cantidad * precio}`;
 }

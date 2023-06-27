@@ -57,7 +57,14 @@ export default class UI{
             precioProducto.innerHTML = `<span class="fw-bold">Precio: $</span> ${precio}`;
 
             const subtotalProducto = document.createElement('P');
-            subtotalProducto.innerHTML = `<span class="fw-bold">Subtotal: </span> ${calcularSubtotal(cantidad, precio)}`;
+            subtotalProducto.innerHTML = `<span class="fw-bold">Subtotal: $</span> ${calcularSubtotal(cantidad, precio)}`;
+
+            const buttonEliminar = document.createElement('BUTTON');
+            buttonEliminar.classList.add('btn', 'btn-danger');
+            buttonEliminar.textContent = 'Eliminar';
+            buttonEliminar.onclick = function () {
+                
+            }
 
 
             // AGREGANDO LOS ELEMENTOS AL LI
@@ -65,6 +72,7 @@ export default class UI{
             lista.appendChild(cantidadProducto);
             lista.appendChild(precioProducto);
             lista.appendChild(subtotalProducto);
+            lista.appendChild(buttonEliminar);
 
             // AGREGAR AL ELEMENTO PRINCIPAL
             grupo.appendChild(lista);
