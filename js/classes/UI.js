@@ -1,4 +1,4 @@
-import { agregarPlatillo, calcularSubtotal, cliente } from "../funciones.js";
+import { agregarPlatillo, calcularSubtotal, cliente, eliminarPlatillo } from "../funciones.js";
 import { containerPlatillos, contenido, secciones } from "../selectores.js";
 
 const categorias = {
@@ -9,7 +9,7 @@ const categorias = {
 
 export default class UI{
 
-    actualizarResumen(productos){
+    actualizarResumen(){
 
         const resumen = document.createElement('DIV');
         resumen.classList.add('col-md-6', 'card', 'py-5', 'px-3', 'shadow');
@@ -63,7 +63,7 @@ export default class UI{
             buttonEliminar.classList.add('btn', 'btn-danger');
             buttonEliminar.textContent = 'Eliminar';
             buttonEliminar.onclick = function () {
-                
+                eliminarPlatillo(id);
             }
 
 

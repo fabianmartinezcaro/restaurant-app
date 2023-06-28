@@ -85,7 +85,15 @@ export function agregarPlatillo(producto){
 }
 
 export function eliminarPlatillo(id){
-    
+    const {pedido} = cliente;
+
+    const nuevoPedido = pedido.filter(producto => producto.id !== id);
+    cliente.pedido = [...nuevoPedido];
+
+    ui.limpiarHTML(contenido);
+
+    ui.actualizarResumen();
+
 }
 
 export function calcularSubtotal(cantidad, precio){
