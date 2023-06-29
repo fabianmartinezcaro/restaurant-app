@@ -12,7 +12,7 @@ export default class UI{
     actualizarResumen(){
 
         const resumen = document.createElement('DIV');
-        resumen.classList.add('col-md-6', 'card', 'py-5', 'px-3', 'shadow');
+        resumen.classList.add('col-md-12', 'card', 'py-5', 'px-3', 'shadow');
 
         // MESA
         const mesa = document.createElement('P');
@@ -53,6 +53,9 @@ export default class UI{
             const cantidadProducto = document.createElement('P');
             cantidadProducto.innerHTML = `<span class="fw-bold">Cantidad: </span> ${cantidad}`;
 
+            const categoriaProducto = document.createElement('P');
+            categoriaProducto.textContent = categoria;
+
             const precioProducto = document.createElement('P');
             precioProducto.innerHTML = `<span class="fw-bold">Precio: $</span> ${precio}`;
 
@@ -70,6 +73,7 @@ export default class UI{
             // AGREGANDO LOS ELEMENTOS AL LI
             lista.appendChild(nombreProducto);
             lista.appendChild(cantidadProducto);
+            lista.appendChild(categoriaProducto);
             lista.appendChild(precioProducto);
             lista.appendChild(subtotalProducto);
             lista.appendChild(buttonEliminar);
@@ -139,6 +143,15 @@ export default class UI{
 
     mostrarSecciones(){
         secciones.forEach(seccion => seccion.classList.remove('d-none'));
+    }
+
+    mostrarAvisoVacio(){
+        const aviso = document.createElement('P');
+        aviso.classList.add('text-center');
+        aviso.textContent = 'Agrega los productos al pedido';
+
+        contenido.appendChild(aviso);
+    
     }
 
     mostrarAlerta(contenedor, mensaje, tipo){

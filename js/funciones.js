@@ -79,8 +79,11 @@ export function agregarPlatillo(producto){
 
     ui.limpiarHTML(contenido);
 
-    console.log(cliente.pedido)
-    ui.actualizarResumen(cliente.pedido);
+    if(cliente.pedido.length){
+        ui.actualizarResumen();
+    }else{
+        ui.mostrarAvisoVacio();
+    }
 
 }
 
@@ -92,7 +95,11 @@ export function eliminarPlatillo(id){
 
     ui.limpiarHTML(contenido);
 
-    ui.actualizarResumen();
+    if(cliente.pedido.length){
+        ui.actualizarResumen();
+    }else{
+        ui.mostrarAvisoVacio();
+    }
 
 }
 
