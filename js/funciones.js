@@ -101,6 +101,10 @@ export function eliminarPlatillo(id){
         ui.mostrarAvisoVacio();
     }
 
+    const productoEliminado = `#producto-${id}`;
+    const inputEliminado = document.querySelector(productoEliminado);
+    inputEliminado.value = 0;
+
 }
 
 export function calcularSubtotal(cantidad, precio){

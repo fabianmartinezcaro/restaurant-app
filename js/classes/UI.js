@@ -12,7 +12,11 @@ export default class UI{
     actualizarResumen(){
 
         const resumen = document.createElement('DIV');
-        resumen.classList.add('col-md-12', 'card', 'py-5', 'px-3', 'shadow');
+        resumen.classList.add('col-md-6', 'card', 'py-5', 'px-3', 'shadow');
+
+        const heading = document.createElement('H3');
+        heading.classList.add('my-2', 'text-center');
+        heading.textContent = 'Resumen';
 
         // MESA
         const mesa = document.createElement('P');
@@ -81,12 +85,16 @@ export default class UI{
             // AGREGAR AL ELEMENTO PRINCIPAL
             grupo.appendChild(lista);
 
+            // CREAR FORMULARIO DE PROPINAS
+            this.formularioPropinas();
+
         })
 
 
         mesa.appendChild(mesaSpan)
         hora.appendChild(horaSpan)
 
+        resumen.appendChild(heading);
         resumen.appendChild(mesa);
         resumen.appendChild(hora);
         resumen.appendChild(grupo);
@@ -139,6 +147,48 @@ export default class UI{
             containerPlatillos.appendChild(mainPlatillo)
 
         });
+    }
+
+    formularioPropinas(){
+        const formulario = document.createElement('DIV');
+        formulario.classList.add('col-md-6', 'order-2', 'formulario');
+
+        const divFormulario = document.createElement('DIV');
+        divFormulario.classList.add('card', 'py-5', 'px-3', 'shadow');
+
+        const heading = document.createElement('H3');
+        heading.classList.add('my-2', 'text-center');
+        heading.textContent = 'Propina';
+
+        // PROPINA 10%
+        const radio10 = document.createElement('INPUT');
+        radio10.type = 'radio';
+        radio10.name = 'propina';
+        radio10.value = '10';
+        radio10.classList.add('form-check-input');
+
+        const radio10Label = document.createElement('LABEL');
+        radio10Label.textContent = '10%';
+        radio10Label.classList.add('form-check-label');
+
+        const radio10Div = document.createElement('DIV');
+        radio10Div.classList.add('form-check');
+
+        radio10Div.appendChild(radio10);
+        radio10Div.appendChild(radio10Label);
+
+        
+
+        this.limpiarHTML(contenido)
+
+        // AGREGAR AL DIV PRINCIPAL
+        divFormulario.appendChild(heading);
+        divFormulario.appendChild(radio10Div);
+
+
+        formulario.appendChild(divFormulario);
+        contenido.appendChild(formulario);
+
     }
 
     mostrarSecciones(){
