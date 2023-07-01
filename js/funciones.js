@@ -107,6 +107,24 @@ export function eliminarPlatillo(id){
 
 }
 
+export function calcularPropina(){
+
+    const {pedido} = cliente;
+
+    let subtotal = 0;
+
+    pedido.forEach(producto => {
+
+        subtotal += producto.cantidad * producto.precio;
+    
+
+    })
+
+    console.log(subtotal);
+
+
+}
+
 export function calcularSubtotal(cantidad, precio){
     return `${cantidad * precio}`;
 }
