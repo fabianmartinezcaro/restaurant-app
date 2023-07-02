@@ -150,6 +150,7 @@ export default class UI{
     }
 
     formularioPropinas(){
+
         const formulario = document.createElement('DIV');
         formulario.classList.add('col-md-6', 'order-2', 'formulario');
 
@@ -226,6 +227,73 @@ export default class UI{
 
         formulario.appendChild(divFormulario);
         contenido.appendChild(formulario);
+
+    }
+
+    mostrarTotal(propina, subtotal, totalPagar){
+
+
+        const divTotalPago = document.createElement('DIV')
+        divTotalPago.classList.add('pt-4', 'total-pagar');
+
+        // PROPINA
+        const valorPropinaContainer = document.createElement('div');
+        valorPropinaContainer.classList.add('row','pt-3', 'border-bottom');
+
+        const valorPropinaLabel = document.createElement('label');
+        valorPropinaLabel.classList.add('col', 'fw-bold');
+        valorPropinaLabel.textContent = `Propina: `;
+
+        const valorPropina = document.createElement('p');
+        valorPropina.classList.add('col');
+        valorPropina.textContent = '$ ' + propina;
+
+        valorPropinaContainer.appendChild(valorPropinaLabel);
+        valorPropinaContainer.appendChild(valorPropina);
+
+        // SUBTOTAL
+        const valorSubtotalContainer = document.createElement('div');
+        valorSubtotalContainer.classList.add('row','pt-3', 'border-bottom');
+
+        const valorSubtotalLabel = document.createElement('label');
+        valorSubtotalLabel.classList.add('col', 'fw-bold');
+        valorSubtotalLabel.textContent = `Subtotal: `;
+
+        const valorSubtotal = document.createElement('p');
+        valorSubtotal.classList.add('col');
+        valorSubtotal.textContent = '$ ' + subtotal;
+
+        valorSubtotalContainer.appendChild(valorSubtotalLabel);
+        valorSubtotalContainer.appendChild(valorSubtotal);
+
+        // TOTAL
+        const valorTotalContainer = document.createElement('div');
+        valorTotalContainer.classList.add('row', 'pt-3', 'border-bottom');
+
+        const valorTotalLabel = document.createElement('label');
+        valorTotalLabel.classList.add('col', 'fw-bold');
+        valorTotalLabel.textContent = `Total a pagar: `;
+
+        const valorTotal = document.createElement('p');
+        valorTotal.classList.add('col');
+        valorTotal.textContent = '$ ' + totalPagar;
+
+        const totalPagarDiv = document.querySelector('.total-pagar');
+        if(totalPagarDiv){
+            totalPagarDiv.remove();
+        }
+
+        valorTotalContainer.appendChild(valorTotalLabel);
+        valorTotalContainer.appendChild(valorTotal);
+
+        divTotalPago.appendChild(valorPropinaContainer);
+        divTotalPago.appendChild(valorSubtotalContainer);
+        divTotalPago.appendChild(valorTotalContainer);
+
+        const formulario = document.querySelector('.formulario > div')
+
+        formulario.appendChild(divTotalPago);
+
 
     }
 

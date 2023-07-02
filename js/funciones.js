@@ -113,15 +113,26 @@ export function calcularPropina(){
 
     let subtotal = 0;
 
+    // Calcular el subtotal a pagar
     pedido.forEach(producto => {
-
         subtotal += producto.cantidad * producto.precio;
-    
-
     })
+
+    // Seleccionar el radio button con la propina del cliente
+    const propinaSeleccionada = document.querySelector('[name="propina"]:checked').value;
+    console.log(propinaSeleccionada)
 
     console.log(subtotal);
 
+    // Calcular la propina
+    const propina = ((subtotal * Number(propinaSeleccionada)) / 100);
+    console.log(propina)
+
+    // Calcular el total a pagar
+    const totalPagar = subtotal + propina;
+
+    ui.mostrarTotal(propina, subtotal, totalPagar);
+    
 
 }
 
