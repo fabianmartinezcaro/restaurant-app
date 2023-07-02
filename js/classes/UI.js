@@ -58,7 +58,7 @@ export default class UI{
             cantidadProducto.innerHTML = `<span class="fw-bold">Cantidad: </span> ${cantidad}`;
 
             const categoriaProducto = document.createElement('P');
-            categoriaProducto.textContent = categoria;
+            categoriaProducto.textContent = categorias[categoria];
 
             const precioProducto = document.createElement('P');
             precioProducto.innerHTML = `<span class="fw-bold">Precio: $</span> ${precio}`;
