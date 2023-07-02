@@ -161,6 +161,24 @@ export default class UI{
         heading.classList.add('my-2', 'text-center');
         heading.textContent = 'Propina';
 
+        // PROPINA 0
+        const radio0 = document.createElement('INPUT');
+        radio0.type = 'radio';
+        radio0.name = 'propina';
+        radio0.value = '0';
+        radio0.classList.add('form-check-input');
+        radio0.onclick = calcularPropina;
+
+        const radio0Label = document.createElement('LABEL');
+        radio0Label.textContent = 'Sin propina';
+        radio0Label.classList.add('form-check-label');
+
+        const radio0Div = document.createElement('DIV');
+        radio0Div.classList.add('form-check');
+
+        radio0Div.appendChild(radio0);
+        radio0Div.appendChild(radio0Label);
+
         // PROPINA 10%
         const radio10 = document.createElement('INPUT');
         radio10.type = 'radio';
@@ -221,6 +239,7 @@ export default class UI{
 
         // AGREGAR AL DIV PRINCIPAL
         divFormulario.appendChild(heading);
+        divFormulario.appendChild(radio0Div);
         divFormulario.appendChild(radio10Div);
         divFormulario.appendChild(radio25Div);
         divFormulario.appendChild(radio50Div);
@@ -240,7 +259,7 @@ export default class UI{
         const valorPropinaContainer = document.createElement('div');
         valorPropinaContainer.classList.add('row','pt-3', 'border-bottom');
 
-        const valorPropinaLabel = document.createElement('label');
+        const valorPropinaLabel = document.createElement('LABEL');
         valorPropinaLabel.classList.add('col', 'fw-bold');
         valorPropinaLabel.textContent = `Propina: `;
 
@@ -255,7 +274,7 @@ export default class UI{
         const valorSubtotalContainer = document.createElement('div');
         valorSubtotalContainer.classList.add('row','pt-3', 'border-bottom');
 
-        const valorSubtotalLabel = document.createElement('label');
+        const valorSubtotalLabel = document.createElement('LABEL');
         valorSubtotalLabel.classList.add('col', 'fw-bold');
         valorSubtotalLabel.textContent = `Subtotal: `;
 
@@ -270,13 +289,13 @@ export default class UI{
         const valorTotalContainer = document.createElement('div');
         valorTotalContainer.classList.add('row', 'pt-3', 'border-bottom');
 
-        const valorTotalLabel = document.createElement('label');
+        const valorTotalLabel = document.createElement('H5');
         valorTotalLabel.classList.add('col', 'fw-bold');
         valorTotalLabel.textContent = `Total a pagar: `;
 
-        const valorTotal = document.createElement('p');
-        valorTotal.classList.add('col');
-        valorTotal.textContent = '$ ' + totalPagar;
+        const valorTotal = document.createElement('h5');
+        valorTotal.classList.add('col', 'fw-bold');
+        valorTotal.textContent = '$ ' + parseInt(totalPagar);
 
         const totalPagarDiv = document.querySelector('.total-pagar');
         if(totalPagarDiv){

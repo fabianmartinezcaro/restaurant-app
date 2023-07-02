@@ -120,13 +120,9 @@ export function calcularPropina(){
 
     // Seleccionar el radio button con la propina del cliente
     const propinaSeleccionada = document.querySelector('[name="propina"]:checked').value;
-    console.log(propinaSeleccionada)
-
-    console.log(subtotal);
 
     // Calcular la propina
     const propina = ((subtotal * Number(propinaSeleccionada)) / 100);
-    console.log(propina)
 
     // Calcular el total a pagar
     const totalPagar = subtotal + propina;
