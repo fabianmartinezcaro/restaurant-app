@@ -265,7 +265,7 @@ export default class UI{
 
         const valorPropina = document.createElement('p');
         valorPropina.classList.add('col');
-        valorPropina.textContent = '$ ' + propina;
+        valorPropina.textContent = '$ ' + parseInt(propina);
 
         valorPropinaContainer.appendChild(valorPropinaLabel);
         valorPropinaContainer.appendChild(valorPropina);
@@ -280,7 +280,7 @@ export default class UI{
 
         const valorSubtotal = document.createElement('p');
         valorSubtotal.classList.add('col');
-        valorSubtotal.textContent = '$ ' + subtotal;
+        valorSubtotal.textContent = '$ ' + parseInt(subtotal);
 
         valorSubtotalContainer.appendChild(valorSubtotalLabel);
         valorSubtotalContainer.appendChild(valorSubtotal);
